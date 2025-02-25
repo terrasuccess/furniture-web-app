@@ -1,5 +1,4 @@
 
-
 interface ItemFormFieldsProps {
   index: number;
   item: {
@@ -44,8 +43,8 @@ export const ItemFormFields = ({ index, item, updateItem, formatPrice }: ItemFor
   const conditionOptions = ["Perfect", "Good", "Okay", "Bad"];
 
   return (
-    <>
-      <div className="grid grid-cols-2 gap-4">
+    <div className="space-y-5">
+      <div className="grid grid-cols-2 gap-5">
         <div>
           <label className="norr11-label">
             Quantity
@@ -77,7 +76,7 @@ export const ItemFormFields = ({ index, item, updateItem, formatPrice }: ItemFor
           />
         </div>
       </div>
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-2 gap-5">
         <div>
           <label className="norr11-label">
             Designer
@@ -150,7 +149,6 @@ export const ItemFormFields = ({ index, item, updateItem, formatPrice }: ItemFor
           placeholder="Enter price in kr."
         />
       </div>
-    </>
+    </div>
   );
 };
-

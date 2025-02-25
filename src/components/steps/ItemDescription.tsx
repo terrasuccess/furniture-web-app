@@ -61,9 +61,9 @@ export const ItemDescription = () => {
   };
 
   return (
-    <div className="space-y-6">
-      <h2 className="text-2xl font-semibold text-center">Item Description</h2>
-      <div className="space-y-6">
+    <div className="space-y-8 max-w-3xl mx-auto">
+      <h2 className="text-2xl font-semibold text-center mb-6">Item Description</h2>
+      <div className="space-y-2">
         {formData.items.map((item, index) => (
           <ItemCard
             key={index}
@@ -80,7 +80,7 @@ export const ItemDescription = () => {
           />
         ))}
         
-        <div className="flex justify-between items-center py-4 border-t">
+        <div className="flex justify-between items-center py-5 border-t border-gray-200 mt-6">
           <div className="text-lg font-semibold">
             Total: {formatPrice(calculateTotal(formData.items))}
           </div>
@@ -94,7 +94,7 @@ export const ItemDescription = () => {
           </Button>
         </div>
       </div>
-      <div className="flex justify-between">
+      <div className="flex justify-between mt-8 pt-4">
         <Button
           onClick={() => setCurrentStep('customerInfo')}
           variant="outline"
