@@ -57,7 +57,7 @@ export const FurnitureForm = () => {
 
         <div 
           key={key} 
-          className={`glass-card rounded-none p-8 md:p-12 transition-all duration-500 ${
+          className={`glass-card rounded-none p-8 md:p-12 transition-all duration-300 ${
             currentStep === 'confirmation' ? 'max-w-xl mx-auto form-appear' : 'form-appear'
           }`}
         >
@@ -73,3 +73,4 @@ export const FurnitureForm = () => {
     </div>
   );
 };
+
