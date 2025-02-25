@@ -30,8 +30,10 @@ export interface FurnitureFormData {
     condition: string;
     materials: string;
     price: number;
+    imageUrl?: string;
   }[];
 
   // Signature
   signature?: string;
 }
+
