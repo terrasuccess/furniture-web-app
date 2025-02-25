@@ -78,19 +78,23 @@ export const ItemCard = ({
           }
         `}
       >
-        <ItemImageUpload 
-          index={index}
-          imageUrl={item.imageUrl}
-          handleImageUpload={handleImageUpload}
-          uploading={uploading}
-        />
+        <div className="flex flex-col md:flex-row gap-6">
+          <ItemImageUpload 
+            index={index}
+            imageUrl={item.imageUrl}
+            handleImageUpload={handleImageUpload}
+            uploading={uploading}
+          />
 
-        <ItemFormFields 
-          index={index}
-          item={item}
-          updateItem={updateItem}
-          formatPrice={formatPrice}
-        />
+          <div className="flex-1">
+            <ItemFormFields 
+              index={index}
+              item={item}
+              updateItem={updateItem}
+              formatPrice={formatPrice}
+            />
+          </div>
+        </div>
       </div>
     </div>
   );
