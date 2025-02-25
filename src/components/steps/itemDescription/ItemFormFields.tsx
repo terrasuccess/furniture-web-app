@@ -27,6 +27,7 @@ export const ItemFormFields = ({ index, item, updateItem, formatPrice }: ItemFor
             value={item.quantity}
             onChange={(e) => updateItem(index, 'quantity', parseInt(e.target.value) || 0)}
             className="norr11-input"
+            placeholder="Enter quantity"
           />
         </div>
         <div>
@@ -38,6 +39,7 @@ export const ItemFormFields = ({ index, item, updateItem, formatPrice }: ItemFor
             value={item.model}
             onChange={(e) => updateItem(index, 'model', e.target.value)}
             className="norr11-input"
+            placeholder="Enter model name"
           />
         </div>
       </div>
@@ -51,6 +53,7 @@ export const ItemFormFields = ({ index, item, updateItem, formatPrice }: ItemFor
             value={item.designer}
             onChange={(e) => updateItem(index, 'designer', e.target.value)}
             className="norr11-input"
+            placeholder="Enter designer name"
           />
         </div>
         <div>
@@ -62,6 +65,7 @@ export const ItemFormFields = ({ index, item, updateItem, formatPrice }: ItemFor
             value={item.manufacturer}
             onChange={(e) => updateItem(index, 'manufacturer', e.target.value)}
             className="norr11-input"
+            placeholder="Enter manufacturer name"
           />
         </div>
       </div>
@@ -74,6 +78,7 @@ export const ItemFormFields = ({ index, item, updateItem, formatPrice }: ItemFor
           value={item.condition}
           onChange={(e) => updateItem(index, 'condition', e.target.value)}
           className="norr11-input"
+          placeholder="Describe item condition"
         />
       </div>
       <div>
@@ -85,6 +90,7 @@ export const ItemFormFields = ({ index, item, updateItem, formatPrice }: ItemFor
           value={item.materials}
           onChange={(e) => updateItem(index, 'materials', e.target.value)}
           className="norr11-input"
+          placeholder="List materials used"
         />
       </div>
       <div>
@@ -96,7 +102,7 @@ export const ItemFormFields = ({ index, item, updateItem, formatPrice }: ItemFor
           value={item.price}
           onChange={(e) => updateItem(index, 'price', parseInt(e.target.value) || 0)}
           className="norr11-input"
-          placeholder="0 DKK"
+          placeholder="Enter price in DKK"
         />
         <div className="text-sm text-gray-500 mt-1">
           {formatPrice(item.price)}
