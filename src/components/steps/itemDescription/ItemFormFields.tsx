@@ -16,12 +16,19 @@ interface ItemFormFieldsProps {
 
 export const ItemFormFields = ({ index, item, updateItem, formatPrice }: ItemFormFieldsProps) => {
   const handlePriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    // Extract only positive numeric values
-    const numericValue = parseInt(e.target.value) || 0;
-    // Only update if the value is at least 1 or empty
-    if (numericValue >= 1 || e.target.value === '') {
-      updateItem(index, 'price', numericValue);
-    }
+    // Extract only numbers from the input
+    const numericValue = parseInt(e.target.value.replace(/[^0-9]/g, '')) || 0;
+    // Only update if the value is at least 0
+    updateItem(index, 'price', numericValue);
+  };
+
+  // Format price as Danish currency without the currency symbol
+  const formatPriceInput = (price: number) => {
+    if (price === 0) return '';
+    return new Intl.NumberFormat('da-DK', {
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    }).format(price) + ' kr.';
   };
 
   return (
@@ -107,9 +114,8 @@ export const ItemFormFields = ({ index, item, updateItem, formatPrice }: ItemFor
           Price (DKK)
         </label>
         <input
-          type="number"
-          min="1"
-          value={item.price || ''}
+          type="text"
+          value={formatPriceInput(item.price)}
           onChange={handlePriceChange}
           className="norr11-input"
           placeholder="Enter price in kr."
