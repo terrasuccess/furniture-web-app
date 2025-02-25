@@ -15,6 +15,10 @@ export const StepIndicator = () => {
   const { currentStep } = useFormStore();
   
   const getCurrentStepIndex = () => {
+    // If we're on the summary step, consider all previous steps complete
+    if (currentStep === 'summary' || currentStep === 'confirmation') {
+      return steps.length;
+    }
     return steps.findIndex(s => s.step === currentStep);
   };
 
@@ -23,7 +27,7 @@ export const StepIndicator = () => {
       {steps.map((step, i) => {
         const currentIndex = getCurrentStepIndex();
         const isComplete = i < currentIndex;
-        const isActive = i === currentIndex;
+        const isActive = i === currentIndex && currentStep !== 'summary' && currentStep !== 'confirmation';
         
         return (
           <div 
