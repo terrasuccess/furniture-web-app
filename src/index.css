@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -72,12 +73,18 @@
     @apply bg-green-600;
   }
 
-  .collapsed .step-item {
-    @apply w-0 overflow-hidden;
+  .collapsed .step-indicator {
+    @apply justify-center;
   }
 
-  .collapsed .step-item.complete {
-    @apply w-10;
+  .collapsed .step-item {
+    @apply absolute opacity-0 w-0 overflow-hidden;
+    transform: scale(0);
+  }
+
+  .collapsed .step-item.complete:last-child {
+    @apply relative opacity-100 w-10;
+    transform: scale(1);
   }
 
   .collapsed .step-item:before {
@@ -87,28 +94,28 @@
   .collapsed .step-text {
     @apply opacity-0;
   }
-}
 
-.form-appear {
-  opacity: 0;
-  transform: translateX(50px);
-  animation: formAppear 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-
-@keyframes formAppear {
-  0% {
+  .form-appear {
     opacity: 0;
     transform: translateX(50px);
+    animation: formAppear 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
+  
+  @keyframes formAppear {
+    0% {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
   }
-}
-
-.glass-card {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+  
+  .glass-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+  }
 }

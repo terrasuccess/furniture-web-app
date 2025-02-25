@@ -26,7 +26,7 @@ export const StepIndicator = () => {
   }, [currentStep]);
 
   const getCurrentStepIndex = () => {
-    // If we're on the summary step, consider all previous steps complete
+    // If we're on the summary step or confirmation, consider all previous steps complete
     if (currentStep === 'summary' || currentStep === 'confirmation') {
       return steps.length;
     }
