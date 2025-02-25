@@ -17,7 +17,7 @@ export const ItemImageUpload = ({ index, imageUrl, handleImageUpload, uploading 
       </label>
       <div className="flex items-center gap-4">
         {imageUrl ? (
-          <div className="relative w-24 h-24">
+          <div className="relative w-24 h-20">
             <img
               src={imageUrl}
               alt={`Item ${index + 1}`}
@@ -48,9 +48,9 @@ export const ItemImageUpload = ({ index, imageUrl, handleImageUpload, uploading 
             />
             <label
               htmlFor={`image-upload-${index}`}
-              className="flex flex-col items-center justify-center w-24 h-24 border-2 border-dashed rounded-lg cursor-pointer hover:bg-gray-50"
+              className="flex flex-col items-center justify-center w-24 h-20 border-2 border-dashed rounded-lg cursor-pointer hover:bg-gray-50"
             >
-              <Upload className="w-6 h-6 text-gray-400" />
+              <Upload className="w-5 h-5 text-gray-400" />
               <span className="text-xs text-gray-500">Upload</span>
             </label>
           </div>
