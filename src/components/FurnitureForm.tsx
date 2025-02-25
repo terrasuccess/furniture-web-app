@@ -38,8 +38,8 @@ export const FurnitureForm = () => {
           filter: 'brightness(1.05) contrast(0.95)'
         }}
       />
-      {/* White overlay with reduced opacity (10%) */}
-      <div className="fixed inset-0 bg-white/10" />
+      {/* Black overlay with 25% opacity */}
+      <div className="fixed inset-0 bg-black/25" />
       
       {/* Content */}
       <div className="w-full max-w-3xl relative z-10">
