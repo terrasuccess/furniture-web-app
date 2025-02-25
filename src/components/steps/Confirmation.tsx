@@ -9,7 +9,7 @@ export const Confirmation = () => {
   return (
     <div className="text-center space-y-8">
       <div className="flex justify-center">
-        <div className="rounded-full bg-black p-3">
+        <div className="rounded-full bg-green-500 p-3">
           <Check className="w-6 h-6 text-white" />
         </div>
       </div>
