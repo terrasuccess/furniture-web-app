@@ -39,7 +39,7 @@ export const ItemCard = ({
   toggleCollapse
 }: ItemCardProps) => {
   return (
-    <div className={`border border-gray-200 rounded-lg mb-4 transition-all duration-300 ease-in-out ${collapsed ? 'py-2 px-4' : 'p-5'}`}>
+    <div className={`border border-gray-200 rounded-lg mb-4 transition-all duration-200 ease-in-out ${collapsed ? 'py-2 px-4' : 'p-5'}`}>
       <div className="flex justify-between items-center">
         <div className="flex items-center gap-2">
           <h3 className="font-medium text-gray-800 text-sm">
@@ -71,12 +71,17 @@ export const ItemCard = ({
       
       <div 
         className={`
-          overflow-hidden transition-all duration-300 ease-in-out
+          overflow-hidden transition-all duration-200 ease-in-out
           ${collapsed 
-            ? 'max-h-0 opacity-0 mt-0' 
-            : 'max-h-[2000px] opacity-100 mt-4 space-y-5'
+            ? 'max-h-0 opacity-0 mt-0 invisible' 
+            : 'max-h-[2000px] opacity-100 mt-4 space-y-5 visible'
           }
         `}
+        style={{
+          transition: collapsed 
+            ? 'max-height 0.2s ease-out, opacity 0.15s ease-out, margin 0.15s ease-out, visibility 0s linear 0.2s' 
+            : 'max-height 0.3s ease-in, opacity 0.2s ease-in, margin 0.2s ease-in, visibility 0s linear 0s'
+        }}
       >
         <div className="flex flex-col md:flex-row gap-6">
           <ItemImageUpload 
