@@ -16,9 +16,12 @@ interface ItemFormFieldsProps {
 
 export const ItemFormFields = ({ index, item, updateItem, formatPrice }: ItemFormFieldsProps) => {
   const handlePriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    // Extract only the numeric value from the input
-    const numericValue = e.target.value.replace(/[^0-9]/g, '');
-    updateItem(index, 'price', parseInt(numericValue) || 0);
+    // Extract only positive numeric values
+    const numericValue = parseInt(e.target.value) || 0;
+    // Only update if the value is at least 1 or empty
+    if (numericValue >= 1 || e.target.value === '') {
+      updateItem(index, 'price', numericValue);
+    }
   };
 
   return (
@@ -104,8 +107,9 @@ export const ItemFormFields = ({ index, item, updateItem, formatPrice }: ItemFor
           Price (DKK)
         </label>
         <input
-          type="text"
-          value={item.price > 0 ? formatPrice(item.price) : ''}
+          type="number"
+          min="1"
+          value={item.price || ''}
           onChange={handlePriceChange}
           className="norr11-input"
           placeholder="Enter price in kr."
