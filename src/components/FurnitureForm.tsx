@@ -17,7 +17,7 @@ export const FurnitureForm = () => {
       <div className="w-full max-w-4xl">
         <div className="mb-8">
           <img 
-            src="/lovable-uploads/28546054-d17f-4df1-8a6b-3463f6fe5c7d.png" 
+            src="/lovable-uploads/02270f18-85d3-40ce-a0ce-a9f1321e0333.png" 
             alt="Klassik Logo" 
             className="h-12 mx-auto mb-8"
           />
