@@ -22,6 +22,14 @@ export const ItemFormFields = ({ index, item, updateItem, formatPrice }: ItemFor
     updateItem(index, 'price', numericValue);
   };
 
+  const handleQuantityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    // Parse the input value
+    const value = parseInt(e.target.value) || 0;
+    // Ensure the value is at least 0
+    const validValue = Math.max(0, value);
+    updateItem(index, 'quantity', validValue);
+  };
+
   // Format price as Danish currency without the currency symbol
   const formatPriceInput = (price: number) => {
     if (price === 0) return '';
@@ -43,8 +51,9 @@ export const ItemFormFields = ({ index, item, updateItem, formatPrice }: ItemFor
           </label>
           <input
             type="number"
+            min="0"
             value={item.quantity}
-            onChange={(e) => updateItem(index, 'quantity', parseInt(e.target.value) || 0)}
+            onChange={handleQuantityChange}
             className="norr11-input appearance-none bg-transparent w-full"
             placeholder="Enter quantity"
             style={{ 
