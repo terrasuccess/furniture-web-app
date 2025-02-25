@@ -28,13 +28,11 @@ export const FurnitureForm = () => {
       {/* Content */}
       <div className="w-full max-w-4xl relative z-10">
         <div className="mb-8">
-          <div className="bg-white/40 backdrop-blur-sm p-4 rounded-xl shadow-lg inline-block">
-            <img 
-              src="/lovable-uploads/02270f18-85d3-40ce-a0ce-a9f1321e0333.png" 
-              alt="Klassik Logo" 
-              className="h-20 mx-auto mb-8 drop-shadow-lg"
-            />
-          </div>
+          <img 
+            src="/lovable-uploads/02270f18-85d3-40ce-a0ce-a9f1321e0333.png" 
+            alt="Klassik Logo" 
+            className="h-20 mx-auto mb-8"
+          />
           <StepIndicator />
         </div>
 
@@ -51,3 +49,4 @@ export const FurnitureForm = () => {
     </div>
   );
 };
+
