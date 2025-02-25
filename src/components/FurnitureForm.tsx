@@ -20,7 +20,7 @@ export const FurnitureForm = () => {
   }, [currentStep]);
 
   return (
-    <div className="relative min-h-screen flex flex-col items-center justify-center p-4">
+    <div className="relative min-h-screen flex flex-col items-center p-4 pt-12">
       {/* Background image with overlay */}
       <div 
         className="fixed inset-0 bg-cover bg-center bg-no-repeat"
@@ -73,4 +73,3 @@ export const FurnitureForm = () => {
     </div>
   );
 };
-
