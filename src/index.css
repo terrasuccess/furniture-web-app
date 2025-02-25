@@ -11,7 +11,7 @@
     --card-foreground: 240 10% 3.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
-    --primary: 0 0% 36%;
+    --primary: 220 6% 10%;
     --primary-foreground: 0 0% 98%;
     --secondary: 240 4.8% 95.9%;
     --secondary-foreground: 240 5.9% 10%;
@@ -21,15 +21,15 @@
     --accent-foreground: 240 5.9% 10%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
     --ring: 240 5.9% 10%;
-    --radius: 0.5rem;
+    --radius: 0rem;
   }
  
   * {
     @apply border-border;
-    font-family: 'Avenir', 'Helvetica Neue', sans-serif;
+    font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
   }
   
   body {
@@ -45,32 +45,31 @@
   }
   
   .step-item:not(:first-child):before {
-    @apply content-[''] bg-slate-200 absolute w-full h-[3px] right-2/4 top-1/3 -translate-y-2/4;
+    @apply content-[''] bg-gray-200 absolute w-full h-[1px] right-2/4 top-1/3 -translate-y-2/4;
     transition: all 0.5s ease-in-out;
   }
   
   .step {
-    @apply w-10 h-10 flex items-center justify-center z-10 relative bg-primary rounded-full font-semibold text-white;
+    @apply w-8 h-8 flex items-center justify-center z-10 relative bg-primary rounded-full font-semibold text-white text-xs;
     transition: all 0.5s ease-in-out;
   }
   
   .active .step {
-    @apply bg-white text-primary;
+    @apply bg-white text-primary ring-1 ring-primary;
   }
   
   .complete .step {
-    @apply bg-green-600;
+    @apply bg-black text-white;
   }
   
   .step-text {
-    @apply text-white;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    @apply text-primary text-xs font-medium mt-1;
     transition: all 0.5s ease-in-out;
   }
   
   .complete:not(:first-child):before,
   .active:not(:first-child):before {
-    @apply bg-green-600;
+    @apply bg-black;
   }
 
   .collapsed .step-indicator {
@@ -91,25 +90,41 @@
 
   .form-appear {
     opacity: 0;
-    transform: translateX(50px);
-    animation: formAppear 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    transform: translateY(20px);
+    animation: formAppear 0.5s ease-out forwards;
   }
   
   @keyframes formAppear {
     0% {
       opacity: 0;
-      transform: translateX(50px);
+      transform: translateY(20px);
     }
     100% {
       opacity: 1;
-      transform: translateX(0);
+      transform: translateY(0);
     }
   }
   
   .glass-card {
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(235, 235, 235, 0.3);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.04);
+  }
+
+  .norr11-input {
+    @apply w-full p-3 border-0 border-b border-gray-300 focus:ring-0 focus:border-black outline-none bg-transparent transition-colors;
+  }
+
+  .norr11-label {
+    @apply block text-xs uppercase tracking-wider font-medium text-gray-500 mb-1;
+  }
+
+  .norr11-button {
+    @apply px-8 py-3 bg-black text-white border-0 uppercase text-xs tracking-wider font-medium transition-colors hover:bg-gray-800;
+  }
+
+  .norr11-button-outline {
+    @apply px-8 py-3 bg-transparent text-black border border-black uppercase text-xs tracking-wider font-medium transition-colors hover:bg-gray-100;
   }
 }

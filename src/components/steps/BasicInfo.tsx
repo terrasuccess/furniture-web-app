@@ -20,52 +20,54 @@ export const BasicInfo = () => {
   const todayDate = format(new Date(), 'yyyy-MM-dd');
 
   return (
-    <div className="space-y-6">
-      <h2 className="text-2xl font-semibold text-center">Basic Information</h2>
-      <div className="space-y-4">
+    <div className="space-y-8">
+      <h2 className="text-2xl font-light text-center uppercase tracking-wide mb-8">Basic Information</h2>
+      <div className="space-y-6">
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
+          <label className="norr11-label">
             Document Number
           </label>
           <input
             type="text"
             value={formData.attachmentNumber || ''}
             readOnly
-            className="w-full p-2 border rounded-md bg-gray-50"
+            className="norr11-input bg-gray-100"
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
+          <label className="norr11-label">
             Today's Date
           </label>
           <input
             type="date"
             value={todayDate}
             readOnly
-            className="w-full p-2 border rounded-md bg-gray-50"
+            className="norr11-input bg-gray-100"
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
+          <label className="norr11-label">
             Pickup Date
           </label>
           <input
             type="date"
             value={formData.pickupDate || ''}
             onChange={(e) => updateFormData({ pickupDate: e.target.value })}
-            className="w-full p-2 border rounded-md"
+            className="norr11-input"
           />
         </div>
       </div>
-      <div className="flex justify-between">
+      <div className="flex justify-between pt-8">
         <Button
           onClick={() => setCurrentStep('welcome')}
           variant="outline"
+          className="norr11-button-outline"
         >
           Back
         </Button>
         <Button
           onClick={() => setCurrentStep('customerInfo')}
+          className="norr11-button"
         >
           Next
         </Button>

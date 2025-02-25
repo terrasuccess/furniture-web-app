@@ -21,9 +21,9 @@ export const FurnitureForm = () => {
 
   return (
     <div className="relative min-h-screen flex flex-col items-center justify-center p-4">
-      {/* Background image with blur and overlay */}
+      {/* Background image with overlay */}
       <div 
-        className="fixed inset-0 bg-cover bg-center bg-no-repeat blur-sm"
+        className="fixed inset-0 bg-cover bg-center bg-no-repeat"
         style={{ 
           backgroundImage: 'url("/lovable-uploads/881d91c6-dbb1-44d9-8170-63d3458a3312.png")',
           backgroundAttachment: 'fixed',
@@ -34,26 +34,27 @@ export const FurnitureForm = () => {
           height: '100vh',
           // Center the background
           left: 0,
-          top: 0
+          top: 0,
+          filter: 'brightness(1.05) contrast(0.95)'
         }}
       />
       {/* White overlay with reduced opacity */}
-      <div className="fixed inset-0 bg-white/5" />
+      <div className="fixed inset-0 bg-white/70" />
       
       {/* Content */}
-      <div className="w-full max-w-4xl relative z-10">
-        <div className="mb-8">
-          <div className="mix-blend-exclusion">
+      <div className="w-full max-w-3xl relative z-10">
+        <div className="mb-12">
+          <div>
             <img 
               src="/lovable-uploads/02270f18-85d3-40ce-a0ce-a9f1321e0333.png" 
               alt="Klassik Logo" 
-              className="h-20 mx-auto mb-8 brightness-200 contrast-200"
+              className="h-16 mx-auto mb-12"
             />
           </div>
           <StepIndicator />
         </div>
 
-        <div key={key} className="glass-card rounded-2xl p-8 transition-all duration-500 form-appear backdrop-blur-lg bg-white/80">
+        <div key={key} className="glass-card rounded-none p-8 md:p-12 transition-all duration-500 form-appear">
           {currentStep === 'welcome' && <Welcome />}
           {currentStep === 'basicInfo' && <BasicInfo />}
           {currentStep === 'customerInfo' && <CustomerInfo />}

@@ -4,12 +4,12 @@ import { Check } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 const steps = [
-  { title: 'Welcome', step: 'welcome' },
-  { title: 'Basic Info', step: 'basicInfo' },
-  { title: 'Customer Info', step: 'customerInfo' },
-  { title: 'Items', step: 'itemDescription' },
-  { title: 'Signature', step: 'signature' },
-  { title: 'Summary', step: 'summary' }
+  { title: 'WELCOME', step: 'welcome' },
+  { title: 'BASIC INFO', step: 'basicInfo' },
+  { title: 'CUSTOMER INFO', step: 'customerInfo' },
+  { title: 'ITEMS', step: 'itemDescription' },
+  { title: 'SIGNATURE', step: 'signature' },
+  { title: 'SUMMARY', step: 'summary' }
 ] as const;
 
 export const StepIndicator = () => {
@@ -47,12 +47,12 @@ export const StepIndicator = () => {
           >
             <div className="step">
               {isComplete ? (
-                <Check className="w-6 h-6" />
+                <Check className="w-4 h-4" />
               ) : (
                 i + 1
               )}
             </div>
-            <p className="text-xs mt-2 step-text">{step.title}</p>
+            <p className="step-text">{step.title}</p>
           </div>
         );
       })}
