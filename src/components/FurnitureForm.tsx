@@ -26,7 +26,15 @@ export const FurnitureForm = () => {
         className="fixed inset-0 bg-cover bg-center bg-no-repeat blur-sm"
         style={{ 
           backgroundImage: 'url("/lovable-uploads/881d91c6-dbb1-44d9-8170-63d3458a3312.png")',
-          backgroundAttachment: 'fixed'
+          backgroundAttachment: 'fixed',
+          // Scale up the background to avoid blur edges
+          transform: 'scale(1.1)',
+          // Ensure the background covers the entire viewport
+          width: '100vw',
+          height: '100vh',
+          // Center the background
+          left: 0,
+          top: 0
         }}
       />
       {/* White overlay with reduced opacity */}
@@ -58,4 +66,3 @@ export const FurnitureForm = () => {
     </div>
   );
 };
-
