@@ -14,58 +14,49 @@ export const FurnitureForm = () => {
   const { currentStep } = useFormStore();
   const [key, setKey] = useState(0);
   const [cardHeight, setCardHeight] = useState<number | null>(null);
-  const itemDescriptionRef = useRef<HTMLDivElement | null>(null);
+  const cardRefs = useRef<{[key: string]: HTMLDivElement | null}>({
+    welcome: null,
+    basicInfo: null,
+    customerInfo: null,
+    itemDescription: null,
+    signature: null,
+    summary: null,
+    confirmation: null
+  });
 
   // Trigger animation on step change
   useEffect(() => {
     setKey(prev => prev + 1);
   }, [currentStep]);
 
-  // Use effect to measure the height of the ItemDescription step
+  // Determine the maximum height after initial render and window resize
   useEffect(() => {
-    // Function to measure and set the height
-    const measureItemDescriptionHeight = () => {
-      if (itemDescriptionRef.current) {
-        // Get the height of the ItemDescription step
-        const height = itemDescriptionRef.current.scrollHeight;
-        setCardHeight(height);
+    const calculateMaxHeight = () => {
+      const heights = Object.values(cardRefs.current)
+        .filter(Boolean)
+        .map(el => el?.scrollHeight || 0);
+      
+      if (heights.length > 0) {
+        const maxHeight = Math.max(...heights);
+        setCardHeight(maxHeight);
       }
     };
 
-    // Measure after initial render and DOM is ready
-    measureItemDescriptionHeight();
-
-    // Force an immediate display of ItemDescription to measure its height
-    const originalDisplay = itemDescriptionRef.current?.style.display;
-    const originalVisibility = itemDescriptionRef.current?.style.visibility;
-    const originalPosition = itemDescriptionRef.current?.style.position;
-    
-    if (itemDescriptionRef.current) {
-      // Make it temporarily visible but not in the flow
-      itemDescriptionRef.current.style.display = 'block';
-      itemDescriptionRef.current.style.visibility = 'hidden';
-      itemDescriptionRef.current.style.position = 'absolute';
-    }
-    
-    // Use setTimeout to ensure DOM update
-    setTimeout(() => {
-      measureItemDescriptionHeight();
-      
-      // Restore original styles
-      if (itemDescriptionRef.current) {
-        itemDescriptionRef.current.style.display = originalDisplay || '';
-        itemDescriptionRef.current.style.visibility = originalVisibility || '';
-        itemDescriptionRef.current.style.position = originalPosition || '';
-      }
-    }, 0);
+    // Calculate after initial render and DOM is ready
+    calculateMaxHeight();
 
     // Recalculate if window resizes
-    window.addEventListener('resize', measureItemDescriptionHeight);
+    window.addEventListener('resize', calculateMaxHeight);
     
     return () => {
-      window.removeEventListener('resize', measureItemDescriptionHeight);
+      window.removeEventListener('resize', calculateMaxHeight);
     };
   }, []);
+
+  // Function to register refs for each content div
+  const registerRef = (step: string, el: HTMLDivElement | null) => {
+    cardRefs.current[step] = el;
+  };
 
   return (
     <div className="relative min-h-screen flex flex-col items-center justify-center p-4">
@@ -107,28 +98,46 @@ export const FurnitureForm = () => {
           className="glass-card rounded-none p-8 md:p-12 transition-all duration-500 form-appear"
           style={{ minHeight: cardHeight ? `${cardHeight}px` : 'auto' }}
         >
-          <div className={`${currentStep === 'welcome' ? 'block' : 'hidden'}`}>
+          <div 
+            ref={(el) => registerRef('welcome', el)} 
+            className={`${currentStep === 'welcome' ? 'block' : 'hidden'}`}
+          >
             <Welcome />
           </div>
-          <div className={`${currentStep === 'basicInfo' ? 'block' : 'hidden'}`}>
+          <div 
+            ref={(el) => registerRef('basicInfo', el)} 
+            className={`${currentStep === 'basicInfo' ? 'block' : 'hidden'}`}
+          >
             <BasicInfo />
           </div>
-          <div className={`${currentStep === 'customerInfo' ? 'block' : 'hidden'}`}>
+          <div 
+            ref={(el) => registerRef('customerInfo', el)} 
+            className={`${currentStep === 'customerInfo' ? 'block' : 'hidden'}`}
+          >
             <CustomerInfo />
           </div>
           <div 
-            ref={itemDescriptionRef} 
+            ref={(el) => registerRef('itemDescription', el)} 
             className={`${currentStep === 'itemDescription' ? 'block' : 'hidden'}`}
           >
             <ItemDescription />
           </div>
-          <div className={`${currentStep === 'signature' ? 'block' : 'hidden'}`}>
+          <div 
+            ref={(el) => registerRef('signature', el)} 
+            className={`${currentStep === 'signature' ? 'block' : 'hidden'}`}
+          >
             <Signature />
           </div>
-          <div className={`${currentStep === 'summary' ? 'block' : 'hidden'}`}>
+          <div 
+            ref={(el) => registerRef('summary', el)} 
+            className={`${currentStep === 'summary' ? 'block' : 'hidden'}`}
+          >
             <Summary />
           </div>
-          <div className={`${currentStep === 'confirmation' ? 'block' : 'hidden'}`}>
+          <div 
+            ref={(el) => registerRef('confirmation', el)} 
+            className={`${currentStep === 'confirmation' ? 'block' : 'hidden'}`}
+          >
             <Confirmation />
           </div>
         </div>
