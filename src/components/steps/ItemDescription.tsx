@@ -1,11 +1,11 @@
 
 import { useFormStore } from '../../store/formStore';
 import { Button } from '../ui/button';
-import { Plus, Upload } from 'lucide-react';
+import { Plus, Upload, Trash2 } from 'lucide-react';
 import { useState } from 'react';
 
 export const ItemDescription = () => {
-  const { setCurrentStep, formData, updateFormData, addItem } = useFormStore();
+  const { setCurrentStep, formData, updateFormData, addItem, removeItem } = useFormStore();
   const [uploading, setUploading] = useState<{ [key: number]: boolean }>({});
 
   const updateItem = (index: number, field: string, value: string | number) => {
@@ -22,7 +22,6 @@ export const ItemDescription = () => {
       const formData = new FormData();
       formData.append('file', file);
       
-      // Upload the file using the built-in Lovable file upload endpoint
       const response = await fetch('/api/upload', {
         method: 'POST',
         body: formData,
@@ -54,9 +53,20 @@ export const ItemDescription = () => {
       <div className="space-y-6">
         {formData.items.map((item, index) => (
           <div key={index} className="p-4 border rounded-lg space-y-4">
-            <h3 className="font-medium">Item {index + 1}</h3>
+            <div className="flex justify-between items-center">
+              <h3 className="font-medium">Item {index + 1}</h3>
+              {formData.items.length > 1 && (
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => removeItem(index)}
+                  className="text-red-500 hover:text-red-700 hover:bg-red-50"
+                >
+                  <Trash2 className="w-4 h-4" />
+                </Button>
+              )}
+            </div>
             
-            {/* Image upload section */}
             <div className="mb-4">
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Item Image

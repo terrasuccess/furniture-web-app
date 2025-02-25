@@ -8,6 +8,7 @@ interface FormState {
   setCurrentStep: (step: FormStep) => void;
   updateFormData: (data: Partial<FurnitureFormData>) => void;
   addItem: () => void;
+  removeItem: (index: number) => void;
   resetForm: () => void;
 }
 
@@ -52,6 +53,14 @@ export const useFormStore = create<FormState>((set) => ({
         ]
       }
     })),
+
+  removeItem: (index) =>
+    set((state) => ({
+      formData: {
+        ...state.formData,
+        items: state.formData.items.filter((_, i) => i !== index)
+      }
+    })),
     
   resetForm: () => 
     set({ 
@@ -59,3 +68,4 @@ export const useFormStore = create<FormState>((set) => ({
       formData: initialFormData
     })
 }));
+
