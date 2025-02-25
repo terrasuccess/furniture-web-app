@@ -23,7 +23,7 @@ export const Summary = () => {
       <div className="space-y-6">
         <div className="pb-4 border-b border-gray-200">
           <h3 className="text-sm uppercase tracking-wider mb-4">Basic Information</h3>
-          <p className="font-light">Attachment Number: <span className="font-normal">{formData.attachmentNumber}</span></p>
+          <p className="font-light">Document Number: <span className="font-normal">{formData.attachmentNumber}</span></p>
           <p className="font-light">Today's Date: <span className="font-normal">{format(new Date(), 'dd-MM-yyyy')}</span></p>
           <p className="font-light">Pickup Date: <span className="font-normal">{formData.pickupDate ? format(new Date(formData.pickupDate), 'dd-MM-yyyy') : ''}</span></p>
         </div>
