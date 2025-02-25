@@ -11,9 +11,9 @@ import { StepIndicator } from './StepIndicator';
 import { useEffect, useState } from 'react';
 
 const backgroundImages = [
-  '/lovable-uploads/68f839ee-1702-48ff-bae8-8d25fce3dec8.png',
-  '/lovable-uploads/b21b5016-2d67-4f8f-a12f-7520ed982c46.png',
-  '/lovable-uploads/6eae26e8-19ad-417c-970c-a2859c943ccf.png'
+  '/lovable-uploads/85bcbf3a-19e8-4b2a-868e-a58c727404a5.png',
+  '/lovable-uploads/1ab8d98a-73d2-47ff-b024-adb692ba9a70.png',
+  '/lovable-uploads/6d45154c-604a-43a1-8645-820b6ad90a8e.png'
 ];
 
 export const FurnitureForm = () => {
