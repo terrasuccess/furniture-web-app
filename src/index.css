@@ -49,6 +49,11 @@
   
   .step {
     @apply w-10 h-10 flex items-center justify-center z-10 relative bg-slate-700 rounded-full font-semibold text-white;
+    filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.5));
+  }
+
+  .step-text {
+    text-shadow: 0 0 4px rgba(255, 255, 255, 0.5);
   }
   
   .active .step {
