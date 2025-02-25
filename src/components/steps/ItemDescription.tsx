@@ -1,4 +1,3 @@
-
 import { useFormStore } from '../../store/formStore';
 import { Button } from '../ui/button';
 import { Plus } from 'lucide-react';
@@ -9,7 +8,7 @@ import { calculateTotal, formatPrice } from './itemDescription/utils';
 export const ItemDescription = () => {
   const { setCurrentStep, formData, updateFormData, addItem, removeItem } = useFormStore();
   const [uploading, setUploading] = useState<{ [key: number]: boolean }>({});
-  const [collapsedItems, setCollapsedItems] = useState<number[]>([]);
+  const [openItemIndex, setOpenItemIndex] = useState<number | null>(0);
 
   const updateItem = (index: number, field: string, value: string | number) => {
     const newItems = [...formData.items];
@@ -40,24 +39,23 @@ export const ItemDescription = () => {
   };
 
   const handleAddItem = () => {
-    // Collapse all existing items when adding a new one
-    const newCollapsedItems = formData.items.map((_, index) => index);
-    setCollapsedItems(newCollapsedItems);
+    setOpenItemIndex(null);
     addItem();
+    setTimeout(() => {
+      setOpenItemIndex(formData.items.length);
+    }, 100);
   };
 
   const toggleCollapse = (index: number) => {
-    setCollapsedItems(prev => {
-      if (prev.includes(index)) {
-        return prev.filter(i => i !== index);
-      } else {
-        return [...prev, index];
-      }
-    });
+    if (openItemIndex === index) {
+      setOpenItemIndex(null);
+    } else {
+      setOpenItemIndex(index);
+    }
   };
 
   const isItemCollapsed = (index: number) => {
-    return collapsedItems.includes(index);
+    return openItemIndex !== index;
   };
 
   return (
