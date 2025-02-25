@@ -1,4 +1,5 @@
 
+
 interface ItemFormFieldsProps {
   index: number;
   item: {
@@ -110,9 +111,14 @@ export const ItemFormFields = ({ index, item, updateItem, formatPrice }: ItemFor
           value={item.condition}
           onChange={(e) => updateItem(index, 'condition', e.target.value)}
           className="norr11-input appearance-none bg-transparent w-full" 
-          style={{ backgroundImage: "url('data:image/svg+xml;charset=US-ASCII,<svg width=\"20\" height=\"20\" viewBox=\"0 0 20 20\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M5 7.5L10 12.5L15 7.5\" stroke=\"%23666666\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>')", backgroundRepeat: "no-repeat", backgroundPosition: "right 0.7rem center", paddingRight: "2rem" }}
+          style={{ 
+            backgroundImage: "url('data:image/svg+xml;charset=US-ASCII,<svg width=\"20\" height=\"20\" viewBox=\"0 0 20 20\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M5 7.5L10 12.5L15 7.5\" stroke=\"%23666666\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>')", 
+            backgroundRepeat: "no-repeat", 
+            backgroundPosition: "right 0.7rem center", 
+            paddingRight: "2rem" 
+          }}
         >
-          <option value="" disabled>Select condition</option>
+          <option value="" disabled style={{ color: "#888888" }}>Select condition</option>
           {conditionOptions.map((option) => (
             <option key={option} value={option}>
               {option}
@@ -147,3 +153,4 @@ export const ItemFormFields = ({ index, item, updateItem, formatPrice }: ItemFor
     </>
   );
 };
+

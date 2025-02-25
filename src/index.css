@@ -36,6 +36,11 @@
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
+
+  /* Add styling for select placeholders */
+  select option[value=""][disabled] {
+    color: #888888;
+  }
 }
 
 @layer utilities {
@@ -114,6 +119,10 @@
 
   .norr11-input {
     @apply w-full p-3 border-0 border-b border-gray-300 focus:ring-0 focus:border-black outline-none bg-transparent transition-colors;
+  }
+
+  .norr11-input::placeholder {
+    color: #888888;
   }
 
   .norr11-label {
