@@ -9,6 +9,7 @@ import { calculateTotal, formatPrice } from './itemDescription/utils';
 export const ItemDescription = () => {
   const { setCurrentStep, formData, updateFormData, addItem, removeItem } = useFormStore();
   const [uploading, setUploading] = useState<{ [key: number]: boolean }>({});
+  const [collapsedItems, setCollapsedItems] = useState<number[]>([]);
 
   const updateItem = (index: number, field: string, value: string | number) => {
     const newItems = [...formData.items];
@@ -38,6 +39,27 @@ export const ItemDescription = () => {
     }
   };
 
+  const handleAddItem = () => {
+    // Collapse all existing items when adding a new one
+    const newCollapsedItems = formData.items.map((_, index) => index);
+    setCollapsedItems(newCollapsedItems);
+    addItem();
+  };
+
+  const toggleCollapse = (index: number) => {
+    setCollapsedItems(prev => {
+      if (prev.includes(index)) {
+        return prev.filter(i => i !== index);
+      } else {
+        return [...prev, index];
+      }
+    });
+  };
+
+  const isItemCollapsed = (index: number) => {
+    return collapsedItems.includes(index);
+  };
+
   return (
     <div className="space-y-6">
       <h2 className="text-2xl font-semibold text-center">Item Description</h2>
@@ -53,6 +75,8 @@ export const ItemDescription = () => {
             uploading={uploading[index] || false}
             totalItems={formData.items.length}
             formatPrice={formatPrice}
+            collapsed={isItemCollapsed(index)}
+            toggleCollapse={toggleCollapse}
           />
         ))}
         
@@ -61,7 +85,7 @@ export const ItemDescription = () => {
             Total: {formatPrice(calculateTotal(formData.items))}
           </div>
           <Button
-            onClick={addItem}
+            onClick={handleAddItem}
             variant="outline"
             className="norr11-button-outline"
           >

@@ -136,4 +136,19 @@
   .norr11-button-outline {
     @apply px-8 py-3 bg-transparent text-black border border-black uppercase text-xs tracking-wider font-medium transition-colors hover:bg-gray-100;
   }
+  
+  /* Item card collapse animation */
+  .item-card-content {
+    max-height: 1000px;
+    opacity: 1;
+    transition: max-height 0.5s ease, opacity 0.3s ease, margin 0.3s ease;
+  }
+  
+  .item-card-content.collapsed {
+    max-height: 0;
+    opacity: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    overflow: hidden;
+  }
 }

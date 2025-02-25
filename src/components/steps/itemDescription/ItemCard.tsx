@@ -1,8 +1,9 @@
 
-import { Trash2 } from 'lucide-react';
+import { Trash2, ChevronDown, ChevronUp } from 'lucide-react';
 import { Button } from '../../ui/button';
 import { ItemImageUpload } from './ItemImageUpload';
 import { ItemFormFields } from './ItemFormFields';
+import { useState } from 'react';
 
 interface ItemCardProps {
   index: number;
@@ -22,6 +23,8 @@ interface ItemCardProps {
   uploading: boolean;
   totalItems: number;
   formatPrice: (price: number) => string;
+  collapsed: boolean;
+  toggleCollapse: (index: number) => void;
 }
 
 export const ItemCard = ({ 
@@ -32,12 +35,25 @@ export const ItemCard = ({
   handleImageUpload, 
   uploading, 
   totalItems,
-  formatPrice
+  formatPrice,
+  collapsed,
+  toggleCollapse
 }: ItemCardProps) => {
   return (
     <div className="p-4 border rounded-lg space-y-4">
       <div className="flex justify-between items-center">
-        <h3 className="font-medium">Item {index + 1}</h3>
+        <div className="flex items-center gap-2">
+          <h3 className="font-medium">Item {index + 1}</h3>
+          {item.model && <span className="text-sm text-gray-600">- {item.model}</span>}
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={() => toggleCollapse(index)}
+            className="hover:bg-gray-100 p-1 h-auto"
+          >
+            {collapsed ? <ChevronDown className="w-4 h-4" /> : <ChevronUp className="w-4 h-4" />}
+          </Button>
+        </div>
         {totalItems > 1 && (
           <Button
             variant="ghost"
@@ -50,19 +66,21 @@ export const ItemCard = ({
         )}
       </div>
       
-      <ItemImageUpload 
-        index={index}
-        imageUrl={item.imageUrl}
-        handleImageUpload={handleImageUpload}
-        uploading={uploading}
-      />
+      <div className={`transition-all duration-300 ${collapsed ? 'h-0 overflow-hidden opacity-0 m-0 p-0' : 'opacity-100'}`}>
+        <ItemImageUpload 
+          index={index}
+          imageUrl={item.imageUrl}
+          handleImageUpload={handleImageUpload}
+          uploading={uploading}
+        />
 
-      <ItemFormFields 
-        index={index}
-        item={item}
-        updateItem={updateItem}
-        formatPrice={formatPrice}
-      />
+        <ItemFormFields 
+          index={index}
+          item={item}
+          updateItem={updateItem}
+          formatPrice={formatPrice}
+        />
+      </div>
     </div>
   );
 };
