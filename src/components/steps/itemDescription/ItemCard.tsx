@@ -56,7 +56,7 @@ export const ItemCard = ({
             {collapsed ? <ChevronDown className="w-3 h-3" /> : <ChevronUp className="w-3 h-3" />}
           </Button>
         </div>
-        {totalItems > 1 && !collapsed && (
+        {totalItems > 1 && (
           <Button
             variant="ghost"
             size="sm"
