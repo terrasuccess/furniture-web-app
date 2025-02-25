@@ -8,9 +8,16 @@ import { Signature } from './steps/Signature';
 import { Summary } from './steps/Summary';
 import { Confirmation } from './steps/Confirmation';
 import { StepIndicator } from './StepIndicator';
+import { useEffect, useState } from 'react';
 
 export const FurnitureForm = () => {
   const { currentStep } = useFormStore();
+  const [key, setKey] = useState(0);
+
+  // Trigger animation on step change
+  useEffect(() => {
+    setKey(prev => prev + 1);
+  }, [currentStep]);
 
   return (
     <div className="relative min-h-screen flex flex-col items-center justify-center p-4">
@@ -38,7 +45,7 @@ export const FurnitureForm = () => {
           <StepIndicator />
         </div>
 
-        <div className="glass-card rounded-2xl p-8 transition-all duration-500 form-appear backdrop-blur-lg bg-white/80">
+        <div key={key} className="glass-card rounded-2xl p-8 transition-all duration-500 form-appear backdrop-blur-lg bg-white/80">
           {currentStep === 'welcome' && <Welcome />}
           {currentStep === 'basicInfo' && <BasicInfo />}
           {currentStep === 'customerInfo' && <CustomerInfo />}
@@ -51,3 +58,4 @@ export const FurnitureForm = () => {
     </div>
   );
 };
+
