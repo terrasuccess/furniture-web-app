@@ -15,6 +15,12 @@ interface ItemFormFieldsProps {
 }
 
 export const ItemFormFields = ({ index, item, updateItem, formatPrice }: ItemFormFieldsProps) => {
+  const handlePriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    // Extract only the numeric value from the input
+    const numericValue = e.target.value.replace(/[^0-9]/g, '');
+    updateItem(index, 'price', parseInt(numericValue) || 0);
+  };
+
   return (
     <>
       <div className="grid grid-cols-2 gap-4">
@@ -98,15 +104,12 @@ export const ItemFormFields = ({ index, item, updateItem, formatPrice }: ItemFor
           Price (DKK)
         </label>
         <input
-          type="number"
-          value={item.price}
-          onChange={(e) => updateItem(index, 'price', parseInt(e.target.value) || 0)}
+          type="text"
+          value={item.price > 0 ? formatPrice(item.price) : ''}
+          onChange={handlePriceChange}
           className="norr11-input"
-          placeholder="Enter price in DKK"
+          placeholder="Enter price in kr."
         />
-        <div className="text-sm text-gray-500 mt-1">
-          {formatPrice(item.price)}
-        </div>
       </div>
     </>
   );
