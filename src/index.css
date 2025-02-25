@@ -51,7 +51,7 @@
   }
   
   .active .step {
-    @apply bg-sky-600;
+    @apply bg-white text-slate-700;
   }
   
   .complete .step {

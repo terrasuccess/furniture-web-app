@@ -22,8 +22,8 @@ export const FurnitureForm = () => {
           backgroundAttachment: 'fixed'
         }}
       />
-      {/* White overlay */}
-      <div className="fixed inset-0 bg-white/60" />
+      {/* White overlay with reduced opacity */}
+      <div className="fixed inset-0 bg-white/30" />
       
       {/* Content */}
       <div className="w-full max-w-4xl relative z-10">
@@ -49,4 +49,3 @@ export const FurnitureForm = () => {
     </div>
   );
 };
-
