@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -78,15 +79,17 @@
 }
 
 .form-appear {
-  animation: formAppear 0.5s ease-out forwards;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: formAppear 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 @keyframes formAppear {
-  from {
+  0% {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px);
   }
-  to {
+  100% {
     opacity: 1;
     transform: translateY(0);
   }
@@ -98,3 +101,4 @@
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
 }
+
