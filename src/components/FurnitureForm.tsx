@@ -11,9 +11,9 @@ import { StepIndicator } from './StepIndicator';
 import { useEffect, useState } from 'react';
 
 const backgroundImages = [
-  '/lovable-uploads/02270f18-85d3-40ce-a0ce-a9f1321e0333.png',
-  '/lovable-uploads/28546054-d17f-4df1-8a6b-3463f8fe5c7d.png',
-  '/lovable-uploads/881d91c6-dbb1-44d9-8170-63d3458a3312.png'
+  '/lovable-uploads/68f839ee-1702-48ff-bae8-8d25fce3dec8.png',
+  '/lovable-uploads/b21b5016-2d67-4f8f-a12f-7520ed982c46.png',
+  '/lovable-uploads/6eae26e8-19ad-417c-970c-a2859c943ccf.png'
 ];
 
 export const FurnitureForm = () => {
@@ -46,7 +46,7 @@ export const FurnitureForm = () => {
         }}
       />
       {/* Semi-transparent overlay */}
-      <div className="fixed inset-0 bg-black/30 z-0" />
+      <div className="fixed inset-0 bg-white/30 z-0" />
       
       {/* Content */}
       <div className="w-full max-w-4xl relative z-10">
