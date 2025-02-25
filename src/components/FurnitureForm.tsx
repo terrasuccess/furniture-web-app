@@ -48,14 +48,19 @@ export const FurnitureForm = () => {
             <img 
               src="/lovable-uploads/02270f18-85d3-40ce-a0ce-a9f1321e0333.png" 
               alt="Klassik Logo" 
-              className="h-24 mx-auto mb-12" // Increased from h-16 to h-24
+              className="h-24 mx-auto mb-12" 
               style={{ filter: 'brightness(0) invert(1)' }} // Makes the logo white
             />
           </div>
           <StepIndicator />
         </div>
 
-        <div key={key} className="glass-card rounded-none p-8 md:p-12 transition-all duration-500 form-appear">
+        <div 
+          key={key} 
+          className={`glass-card rounded-none p-8 md:p-12 transition-all duration-500 ${
+            currentStep === 'confirmation' ? 'max-w-xl mx-auto form-appear' : 'form-appear'
+          }`}
+        >
           {currentStep === 'welcome' && <Welcome />}
           {currentStep === 'basicInfo' && <BasicInfo />}
           {currentStep === 'customerInfo' && <CustomerInfo />}
