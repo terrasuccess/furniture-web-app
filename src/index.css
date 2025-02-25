@@ -74,7 +74,7 @@
   }
 
   .collapsed .step-indicator {
-    @apply justify-center;
+    @apply flex justify-center items-center;
   }
 
   .collapsed .step-item {
@@ -83,7 +83,7 @@
   }
 
   .collapsed .step-item.complete:last-child {
-    @apply relative opacity-100 w-10;
+    @apply relative opacity-100 w-10 mx-auto;
     transform: scale(1);
   }
 
