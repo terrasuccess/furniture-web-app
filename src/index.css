@@ -58,8 +58,8 @@
   .complete .step {
     @apply bg-green-600;
   }
-
-  .complete .step-text {
+  
+  .step-text {
     @apply text-white;
   }
   
