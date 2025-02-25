@@ -31,6 +31,9 @@ export const ItemFormFields = ({ index, item, updateItem, formatPrice }: ItemFor
     }).format(price) + ' kr.';
   };
 
+  // Condition options for the dropdown
+  const conditionOptions = ["Perfect", "Good", "Okay", "Bad"];
+
   return (
     <>
       <div className="grid grid-cols-2 gap-4">
@@ -89,13 +92,18 @@ export const ItemFormFields = ({ index, item, updateItem, formatPrice }: ItemFor
         <label className="norr11-label">
           Condition
         </label>
-        <input
-          type="text"
+        <select
           value={item.condition}
           onChange={(e) => updateItem(index, 'condition', e.target.value)}
           className="norr11-input"
-          placeholder="Describe item condition"
-        />
+        >
+          <option value="" disabled>Select condition</option>
+          {conditionOptions.map((option) => (
+            <option key={option} value={option}>
+              {option}
+            </option>
+          ))}
+        </select>
       </div>
       <div>
         <label className="norr11-label">
