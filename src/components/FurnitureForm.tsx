@@ -35,7 +35,7 @@ export const FurnitureForm = () => {
           // Center the background
           left: 0,
           top: 0,
-          filter: 'brightness(1.05) contrast(0.95)'
+          filter: 'blur(2px) brightness(1.05) contrast(0.95)'
         }}
       />
       {/* Black overlay with 25% opacity */}
