@@ -1,6 +1,7 @@
 
 import { useFormStore } from '../../store/formStore';
 import { Button } from '../ui/button';
+import { format } from 'date-fns';
 
 export const Summary = () => {
   const { setCurrentStep, formData } = useFormStore();
@@ -23,6 +24,7 @@ export const Summary = () => {
         <div className="border rounded-lg p-4">
           <h3 className="font-medium mb-2">Basic Information</h3>
           <p>Attachment Number: {formData.attachmentNumber}</p>
+          <p>Today's Date: {format(new Date(), 'yyyy-MM-dd')}</p>
           <p>Pickup Date: {formData.pickupDate}</p>
         </div>
         
@@ -84,4 +86,3 @@ export const Summary = () => {
     </div>
   );
 };
-
