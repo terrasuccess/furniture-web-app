@@ -68,7 +68,7 @@ export const ItemDescription = () => {
             </div>
             
             <div className="mb-4">
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="norr11-label">
                 Item Image
               </label>
               <div className="flex items-center gap-4">
@@ -117,83 +117,83 @@ export const ItemDescription = () => {
 
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
+                <label className="norr11-label">
                   Quantity
                 </label>
                 <input
                   type="number"
                   value={item.quantity}
                   onChange={(e) => updateItem(index, 'quantity', parseInt(e.target.value) || 0)}
-                  className="w-full p-2 border rounded-md"
+                  className="norr11-input"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
+                <label className="norr11-label">
                   Model
                 </label>
                 <input
                   type="text"
                   value={item.model}
                   onChange={(e) => updateItem(index, 'model', e.target.value)}
-                  className="w-full p-2 border rounded-md"
+                  className="norr11-input"
                 />
               </div>
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
+                <label className="norr11-label">
                   Designer
                 </label>
                 <input
                   type="text"
                   value={item.designer}
                   onChange={(e) => updateItem(index, 'designer', e.target.value)}
-                  className="w-full p-2 border rounded-md"
+                  className="norr11-input"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
+                <label className="norr11-label">
                   Manufacturer
                 </label>
                 <input
                   type="text"
                   value={item.manufacturer}
                   onChange={(e) => updateItem(index, 'manufacturer', e.target.value)}
-                  className="w-full p-2 border rounded-md"
+                  className="norr11-input"
                 />
               </div>
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="norr11-label">
                 Condition
               </label>
               <input
                 type="text"
                 value={item.condition}
                 onChange={(e) => updateItem(index, 'condition', e.target.value)}
-                className="w-full p-2 border rounded-md"
+                className="norr11-input"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="norr11-label">
                 Materials
               </label>
               <input
                 type="text"
                 value={item.materials}
                 onChange={(e) => updateItem(index, 'materials', e.target.value)}
-                className="w-full p-2 border rounded-md"
+                className="norr11-input"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="norr11-label">
                 Price (DKK)
               </label>
               <input
                 type="number"
                 value={item.price}
                 onChange={(e) => updateItem(index, 'price', parseInt(e.target.value) || 0)}
-                className="w-full p-2 border rounded-md"
+                className="norr11-input"
                 placeholder="0 DKK"
               />
               <div className="text-sm text-gray-500 mt-1">
@@ -210,6 +210,7 @@ export const ItemDescription = () => {
           <Button
             onClick={addItem}
             variant="outline"
+            className="norr11-button-outline"
           >
             <Plus className="w-4 h-4 mr-2" />
             Add Another Item
@@ -220,11 +221,13 @@ export const ItemDescription = () => {
         <Button
           onClick={() => setCurrentStep('customerInfo')}
           variant="outline"
+          className="norr11-button-outline"
         >
           Back
         </Button>
         <Button
           onClick={() => setCurrentStep('signature')}
+          className="norr11-button"
         >
           Next
         </Button>
@@ -232,4 +235,3 @@ export const ItemDescription = () => {
     </div>
   );
 };
-
