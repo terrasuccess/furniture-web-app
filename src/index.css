@@ -74,17 +74,11 @@
   }
 
   .collapsed .step-indicator {
-    @apply flex justify-center items-center;
+    @apply hidden;
   }
 
   .collapsed .step-item {
     @apply absolute opacity-0 w-0 overflow-hidden;
-    transform: scale(0);
-  }
-
-  .collapsed .step-item.complete:last-child {
-    @apply relative opacity-100 w-10 mx-auto;
-    transform: scale(1);
   }
 
   .collapsed .step-item:before {
