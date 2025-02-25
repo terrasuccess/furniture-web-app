@@ -34,14 +34,19 @@ export const FurnitureForm = () => {
     <div className="relative min-h-screen flex flex-col items-center justify-center p-4">
       {/* Background image with blur and overlay */}
       <div 
-        className="fixed inset-0 bg-cover bg-center bg-no-repeat blur-sm transition-all duration-1000"
+        className="fixed inset-0 z-0"
         style={{ 
           backgroundImage: `url("${backgroundImages[currentImageIndex]}")`,
-          backgroundAttachment: 'fixed'
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          filter: 'blur(8px)',
+          transform: 'scale(1.1)',
+          transition: 'background-image 1s ease-in-out'
         }}
       />
-      {/* White overlay with increased opacity */}
-      <div className="fixed inset-0 bg-white/10" />
+      {/* Semi-transparent overlay */}
+      <div className="fixed inset-0 bg-black/30 z-0" />
       
       {/* Content */}
       <div className="w-full max-w-4xl relative z-10">
