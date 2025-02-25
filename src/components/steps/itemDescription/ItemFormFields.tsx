@@ -45,8 +45,13 @@ export const ItemFormFields = ({ index, item, updateItem, formatPrice }: ItemFor
             type="number"
             value={item.quantity}
             onChange={(e) => updateItem(index, 'quantity', parseInt(e.target.value) || 0)}
-            className="norr11-input"
+            className="norr11-input appearance-none bg-transparent w-full"
             placeholder="Enter quantity"
+            style={{ 
+              WebkitAppearance: "none", 
+              MozAppearance: "textfield",
+              margin: 0
+            }}
           />
         </div>
         <div>
