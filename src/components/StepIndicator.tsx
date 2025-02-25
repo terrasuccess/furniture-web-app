@@ -1,6 +1,7 @@
 
 import { useFormStore } from '../store/formStore';
 import { Check } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
 const steps = [
   { title: 'Welcome', step: 'welcome' },
@@ -13,7 +14,17 @@ const steps = [
 
 export const StepIndicator = () => {
   const { currentStep } = useFormStore();
+  const [isCollapsed, setIsCollapsed] = useState(false);
   
+  useEffect(() => {
+    // When moving to confirmation, trigger the collapse animation
+    if (currentStep === 'confirmation') {
+      setIsCollapsed(true);
+    } else {
+      setIsCollapsed(false);
+    }
+  }, [currentStep]);
+
   const getCurrentStepIndex = () => {
     // If we're on the summary step, consider all previous steps complete
     if (currentStep === 'summary' || currentStep === 'confirmation') {
@@ -23,7 +34,7 @@ export const StepIndicator = () => {
   };
 
   return (
-    <div className="flex justify-between step-indicator">
+    <div className={`flex justify-between step-indicator ${isCollapsed ? 'collapsed' : ''}`}>
       {steps.map((step, i) => {
         const currentIndex = getCurrentStepIndex();
         const isComplete = i < currentIndex;
