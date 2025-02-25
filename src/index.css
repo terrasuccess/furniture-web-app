@@ -1,4 +1,5 @@
 
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -110,6 +111,8 @@
     backdrop-filter: blur(8px);
     border: 1px solid rgba(235, 235, 235, 0.3);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.04);
+    display: flex;
+    flex-direction: column;
   }
 
   .norr11-input {
