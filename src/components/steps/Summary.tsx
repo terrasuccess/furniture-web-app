@@ -24,8 +24,8 @@ export const Summary = () => {
         <div className="border rounded-lg p-4">
           <h3 className="font-medium mb-2">Basic Information</h3>
           <p>Attachment Number: {formData.attachmentNumber}</p>
-          <p>Today's Date: {format(new Date(), 'yyyy-MM-dd')}</p>
-          <p>Pickup Date: {formData.pickupDate}</p>
+          <p>Today's Date: {format(new Date(), 'dd-MM-yyyy')}</p>
+          <p>Pickup Date: {formData.pickupDate ? format(new Date(formData.pickupDate), 'dd-MM-yyyy') : ''}</p>
         </div>
         
         <div className="border rounded-lg p-4">
