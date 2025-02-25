@@ -50,12 +50,12 @@
   }
   
   .step {
-    @apply w-8 h-8 flex items-center justify-center z-10 relative bg-primary rounded-full font-semibold text-white text-xs;
+    @apply w-8 h-8 flex items-center justify-center z-10 relative bg-white rounded-full font-semibold text-primary text-xs;
     transition: all 0.5s ease-in-out;
   }
   
   .active .step {
-    @apply bg-white text-primary ring-1 ring-primary;
+    @apply bg-[#5C5C5C] text-white ring-1 ring-[#5C5C5C];
   }
   
   .complete .step {

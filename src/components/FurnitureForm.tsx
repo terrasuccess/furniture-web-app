@@ -48,7 +48,7 @@ export const FurnitureForm = () => {
             <img 
               src="/lovable-uploads/02270f18-85d3-40ce-a0ce-a9f1321e0333.png" 
               alt="Klassik Logo" 
-              className="h-16 mx-auto mb-12"
+              className="h-24 mx-auto mb-12" // Increased from h-16 to h-24
               style={{ filter: 'brightness(0) invert(1)' }} // Makes the logo white
             />
           </div>
