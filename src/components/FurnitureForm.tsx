@@ -35,7 +35,7 @@ export const FurnitureForm = () => {
           // Center the background
           left: 0,
           top: 0,
-          filter: 'brightness(1.05) contrast(0.95) blur(3px)', // Added 3px blur (approximately 10%)
+          filter: 'brightness(1.05) contrast(0.95)'
         }}
       />
       {/* Black overlay with 25% opacity */}
@@ -48,8 +48,8 @@ export const FurnitureForm = () => {
             <img 
               src="/lovable-uploads/02270f18-85d3-40ce-a0ce-a9f1321e0333.png" 
               alt="Klassik Logo" 
-              className="h-24 mx-auto mb-12"
-              style={{ filter: 'brightness(0) invert(1)' }}
+              className="h-24 mx-auto mb-12" // Increased from h-16 to h-24
+              style={{ filter: 'brightness(0) invert(1)' }} // Makes the logo white
             />
           </div>
           <StepIndicator />
