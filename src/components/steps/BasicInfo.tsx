@@ -24,29 +24,32 @@ export const BasicInfo = () => {
     <div className="space-y-8">
       <h2 className="text-2xl font-light text-center uppercase tracking-wide mb-8">Basic Information</h2>
       <div className="space-y-6">
-        <div>
-          <label className="norr11-label">
-            Document Number
-          </label>
-          <input
-            type="text"
-            value={formData.attachmentNumber || ''}
-            readOnly
-            disabled
-            className="norr11-input bg-gray-100 cursor-not-allowed opacity-75"
-          />
-        </div>
-        <div>
-          <label className="norr11-label">
-            Today's Date
-          </label>
-          <input
-            type="date"
-            value={todayDate}
-            readOnly
-            disabled
-            className="norr11-input bg-gray-100 cursor-not-allowed opacity-75"
-          />
+        {/* Document number and today's date side by side */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label className="norr11-label">
+              Document Number
+            </label>
+            <input
+              type="text"
+              value={formData.attachmentNumber || ''}
+              readOnly
+              disabled
+              className="norr11-input bg-gray-100 cursor-not-allowed opacity-75"
+            />
+          </div>
+          <div>
+            <label className="norr11-label">
+              Today's Date
+            </label>
+            <input
+              type="date"
+              value={todayDate}
+              readOnly
+              disabled
+              className="norr11-input bg-gray-100 cursor-not-allowed opacity-75"
+            />
+          </div>
         </div>
         <div className="relative">
           <label className="norr11-label">
