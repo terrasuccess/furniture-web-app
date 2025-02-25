@@ -54,20 +54,14 @@ export const FurnitureForm = () => {
           <StepIndicator />
         </div>
 
-        <div 
-          key={key} 
-          className="glass-card rounded-none p-8 md:p-12 transition-all duration-500 form-appear"
-          style={{ minHeight: '320px' }} // Add a minimum height to prevent content jumping
-        >
-          <div className="flex justify-center items-center h-full">
-            {currentStep === 'welcome' && <Welcome />}
-            {currentStep === 'basicInfo' && <BasicInfo />}
-            {currentStep === 'customerInfo' && <CustomerInfo />}
-            {currentStep === 'itemDescription' && <ItemDescription />}
-            {currentStep === 'signature' && <Signature />}
-            {currentStep === 'summary' && <Summary />}
-            {currentStep === 'confirmation' && <Confirmation />}
-          </div>
+        <div key={key} className="glass-card rounded-none p-8 md:p-12 transition-all duration-500 form-appear">
+          {currentStep === 'welcome' && <Welcome />}
+          {currentStep === 'basicInfo' && <BasicInfo />}
+          {currentStep === 'customerInfo' && <CustomerInfo />}
+          {currentStep === 'itemDescription' && <ItemDescription />}
+          {currentStep === 'signature' && <Signature />}
+          {currentStep === 'summary' && <Summary />}
+          {currentStep === 'confirmation' && <Confirmation />}
         </div>
       </div>
     </div>
