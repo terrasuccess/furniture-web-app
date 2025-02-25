@@ -23,7 +23,7 @@ export const StepIndicator = () => {
   };
 
   return (
-    <div className="flex justify-between step-indicator">
+    <div className="flex justify-between">
       {steps.map((step, i) => {
         const currentIndex = getCurrentStepIndex();
         const isComplete = i < currentIndex;
@@ -41,7 +41,7 @@ export const StepIndicator = () => {
                 i + 1
               )}
             </div>
-            <p className="text-xs mt-2 step-text">{step.title}</p>
+            <p className="text-xs mt-2">{step.title}</p>
           </div>
         );
       })}
