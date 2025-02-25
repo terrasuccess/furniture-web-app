@@ -23,7 +23,7 @@ export const FurnitureForm = () => {
         }}
       />
       {/* White overlay with reduced opacity */}
-      <div className="fixed inset-0 bg-white/15" />
+      <div className="fixed inset-0 bg-white/5" />
       
       {/* Content */}
       <div className="w-full max-w-4xl relative z-10">
@@ -49,3 +49,4 @@ export const FurnitureForm = () => {
     </div>
   );
 };
+
