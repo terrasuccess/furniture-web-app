@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { useFormStore } from '../../store/formStore';
 import { Button } from '../ui/button';
 import { format } from 'date-fns';
+import { Calendar } from 'lucide-react';
 
 export const BasicInfo = () => {
   const { setCurrentStep, formData, updateFormData } = useFormStore();
@@ -31,7 +32,8 @@ export const BasicInfo = () => {
             type="text"
             value={formData.attachmentNumber || ''}
             readOnly
-            className="norr11-input bg-gray-100"
+            disabled
+            className="norr11-input bg-gray-100 cursor-not-allowed opacity-75"
           />
         </div>
         <div>
@@ -42,19 +44,25 @@ export const BasicInfo = () => {
             type="date"
             value={todayDate}
             readOnly
-            className="norr11-input bg-gray-100"
+            disabled
+            className="norr11-input bg-gray-100 cursor-not-allowed opacity-75"
           />
         </div>
-        <div>
+        <div className="relative">
           <label className="norr11-label">
             Pickup Date
           </label>
-          <input
-            type="date"
-            value={formData.pickupDate || ''}
-            onChange={(e) => updateFormData({ pickupDate: e.target.value })}
-            className="norr11-input"
-          />
+          <div className="relative">
+            <input
+              type="date"
+              value={formData.pickupDate || ''}
+              onChange={(e) => updateFormData({ pickupDate: e.target.value })}
+              className="norr11-input pr-10 cursor-pointer"
+            />
+            <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-gray-500">
+              <Calendar size={18} />
+            </div>
+          </div>
         </div>
       </div>
       <div className="flex justify-between pt-8">
